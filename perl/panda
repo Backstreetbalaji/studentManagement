@@ -1,0 +1,62 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+class Set_match:
+    def __int__(self):
+        pass
+
+    def merge(self):
+        data1 = pd.read_csv('empy.csv')
+        data2 = pd.read_csv('empy2.csv')
+        output1 = pd.merge(data1, data2, on='empyid', how='inner')
+        ax = output1.plot.bar(rot=0)
+        plt.show()
+
+    def max(self):
+        df = pd.read_csv('empy2.csv')
+        max1 = df['empysalary'].max()
+        print('Max salary: ' + str(max1))
+        min1 = df['empysalary'].min()
+        print('min salary: ' + str(min1))
+
+    def chart(self):
+        speed = [0.1, 17.5, 40, 48, 52, 69, 88]
+        lifespan = [2, 8, 70, 1.5, 25, 12, 28]
+        index = ['snail', 'pig', 'elephant',
+                 'rabbit', 'giraffe', 'coyote', 'horse']
+        df = pd.DataFrame({'speed': speed,
+                           'lifespan': lifespan}, index=index)
+
+
+
+    def dataframe(self):
+        data = {
+            "calories": [420, 380, 390],
+            "duration": [50, 40, 45]
+        }
+        df = pd.DataFrame(data, index=["day1", "day2", "day3"])
+
+        print(df)
+        print(df.loc["day2"])
+
+    def series(self):
+        a = [1, 7, 2]
+
+        myvar = pd.Series(a, index=["x", "y", "z"])
+
+        print(myvar)
+
+    def sort(self):
+        data = pd.read_csv('empy2.csv')
+        df = pd.DataFrame(data)
+        newdf = df.sort_values(by='empysalary', )
+        print(newdf)
+
+obj = Set_match()
+obj.max()
+obj.merge()
+obj.chart()
+obj.dataframe()
+obj.series()
+obj.sort()
